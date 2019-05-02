@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <title>Converters</title>
+</head>
+
+<body>
+  <nav>
+    <div class="logo"><i class="fas fa-pencil-ruler"></i></div>
+    <ul>
+      <li><a class="weight" href="#"><i class="fas fa-balance-scale"></i></a></li>
+      <li><a class="length" href="#"><i class="fas fa-ruler-horizontal"></i></a></li>
+      <li><a class="temperature" href="#"><i class="fas fa-temperature-low"></i></a></li>
+      <li><a class="speed" href="#"><i class="fas fa-tachometer-alt"></i></a></li>
+      <li><a class="time" href="#"><i class="fas fa-hourglass-half"></i></a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <section id="weight" class="measure">
+      <header class="weight">
+        <h1>Convert <span class="highlight">weight</span></h1>
+        <input type="number" placeholder="Enter value in Pound.." />
+      </header>
+      <section>
+        <div class="kg">
+          <span class="cal"></span><span class="unit"> kg</span>
+        </div>
+        <div class="gm">
+          <span class="cal"></span><span class="unit"> gm</span>
+        </div>
+        <div class="ounces">
+          <span class="cal"></span><span class="unit"> ounces</span>
+        </div>
+      </section>
+    </section>
+    <section id="length" class="measure">
+      <header class="length">
+        <h1>Convert <span class="highlight">length</span></h1>
+        <input type="number" placeholder="Enter value in meter.." />
+      </header>
+      <section>
+        <div class="km">
+          <span class="cal"></span><span class="unit"> km</span>
+        </div>
+        <div class="foot">
+          <span class="cal"></span><span class="unit"> foot</span>
+        </div>
+        <div class="inch">
+          <span class="cal"></span><span class="unit"> inch</span>
+        </div>
+        <div class="cm">
+          <span class="cal"></span><span class="unit"> cm</span>
+        </div>
+        <div class="nm">
+          <span class="cal"></span><span class="unit"> Newton Meter</span>
+        </div>
+        <div class="mile">
+          <span class="cal"></span><span class="unit"> mile</span>
+        </div>
+        <div class="yard">
+          <span class="cal"></span><span class="unit"> yard</span>
+        </div>
+      </section>
+    </section>
+    <section id="temperature" class="measure">
+      <header class="temperature">
+        <h1>Convert <span class="highlight">temperature</span></h1>
+        <input type="number" placeholder="Enter value in degree.." />
+      </header>
+      <section>
+        <div class="fahrenite">
+          <span class="cal"></span><span class="unit"> &#176;F</span>
+        </div>
+        <div class="kelvin">
+          <span class="cal"></span><span class="unit"> k</span>
+        </div>
+      </section>
+    </section>
+    <section id="speed" class="measure">
+      <header class="speed">
+        <h1>Convert <span class="highlight">speed</span></h1>
+        <input type="number" placeholder="Enter value in meter/second.." />
+      </header>
+      <section>
+        <div class="mph">
+          <span class="cal"></span><span class="unit"> mph</span>
+        </div>
+        <div class="fph">
+          <span class="cal"></span><span class="unit"> fph</span>
+        </div>
+        <div class="kph">
+          <span class="cal"></span><span class="unit"> kph</span>
+        </div>
+        <div class="knot">
+          <span class="cal"></span><span class="unit"> knot</span>
+        </div>
+      </section>
+    </section>
+    <section id="time" class="measure">
+      <header class="time">
+        <h1>Convert <span class="highlight">time</span></h1>
+        <input type="number" placeholder="Enter value in second.." />
+      </header>
+      <section>
+        <div class="ns">
+          <span class="cal"></span><span class="unit"> nanosec</span>
+        </div>
+        <div class="micros">
+          <span class="cal"></span><span class="unit"> microsec</span>
+        </div>
+        <div class="ms">
+          <span class="cal"></span><span class="unit"> ms</span>
+        </div>
+        <div class="min">
+          <span class="cal"></span><span class="unit"> min</span>
+        </div>
+        <div class="hrs">
+          <span class="cal"></span><span class="unit"> hrs</span>
+        </div>
+        <div class="day">
+          <span class="cal"></span><span class="unit"> day</span>
+        </div>
+        <div class="week">
+          <span class="cal"></span><span class="unit"> week</span>
+        </div>
+        <div class="month">
+          <span class="cal"></span><span class="unit"> month</span>
+        </div>
+        <div class="year">
+          <span class="cal"></span><span class="unit"> year</span>
+        </div>
+        <div class="decade">
+          <span class="cal"></span><span class="unit"> decade</span>
+        </div>
+        <div class="centuary">
+          <span class="cal"></span><span class="unit"> centuary</span>
+        </div>
+      </section>
+    </section>
+  </div>
+
+  <script>
+    document.querySelectorAll('input').forEach(input =>
+      input.addEventListener('input', function (e) {
+        let inputConverType = '';
+        console.log(this.value);
+        inputConverType = this.parentElement.className;
+        if (inputConverType === 'weight') {
+          let kgText = document.querySelector('.kg .cal');
+          let gmText = document.querySelector('.gm .cal');
+          let ouncesText = document.querySelector('.ounces .cal');
+          kgText.textContent = this.value * 0.45359237;
+          gmText.textContent = this.value * 453.592;
+          ouncesText.textContent = this.value * 16;
+        }
+        if (inputConverType === 'length') {
+          let kmText = document.querySelector('.km .cal');
+          let footText = document.querySelector('.foot .cal');
+          let inchText = document.querySelector('.inch .cal');
+          let cmText = document.querySelector('.cm .cal');
+          let nmText = document.querySelector('.nm .cal');
+          let mileText = document.querySelector('.mile .cal');
+          let yardText = document.querySelector('.yard .cal');
+          kmText.textContent = this.value * 0.001;
+          footText.textContent = this.value * 3.281;
+          inchText.textContent = this.value * 39.37;
+          cmText.textContent = this.value * 100;
+          nmText.textContent = this.value / 1852;
+          mileText.textContent = this.value / 1609.344;
+          yardText.textContent = this.value * 1.094;
+        }
+        if (inputConverType === 'temperature') {
+          let fahreniteText = document.querySelector('.fahrenite .cal');
+          let kelvinText = document.querySelector('.kelvin .cal');
+
+          fahreniteText.textContent = this.value * (9 / 5) + 32;
+          kelvinText.textContent = this.value + 273.15;
+        }
+        if (inputConverType === 'speed') {
+          let mphText = document.querySelector('.mph .cal');
+          let fphText = document.querySelector('.fph .cal');
+          let kphText = document.querySelector('.kph .cal');
+          let knotText = document.querySelector('.knot .cal');
+         
+
+          mphText.textContent = this.value * 2.237;
+          fphText.textContent = this.value * 3.281;
+          kphText.textContent = this.value * 3.6;
+          knotText.textContent = this.value * 1.944;
+        }
+        if (inputConverType === 'time') {
+          let nsText = document.querySelector('.ns .cal');
+          let microsText = document.querySelector('.micros .cal');
+          let msText = document.querySelector('.ms .cal');
+          let minText = document.querySelector('.min .cal');
+         
+          let hrsText = document.querySelector('.hrs .cal');
+          let dayText = document.querySelector('.day .cal');
+          let weekText = document.querySelector('.week .cal');
+          let monthText = document.querySelector('.month .cal');
+          let yearText = document.querySelector('.year .cal');
+          let decadeText = document.querySelector('.decade .cal');
+          let centuaryText = document.querySelector('.centuary .cal');
+          nsText.textContent = this.value *(2.72+9);
+          microsText.textContent = this.value * (2.72+6);
+          msText.textContent = this.value *1000;
+          minText.textContent = this.value *60;
+          hrsText.textContent = this.value /3600;
+          dayText.textContent = this.value /86400;
+          weekText.textContent = this.value /604800;
+          monthText.textContent = this.value /2.2628e+6;
+          yearText.textContent = this.value /((3.154*2.72)+7);
+          decadeText.textContent = this.value/((3.154*2.72)+8);
+          centuaryText.textContent = this.value /((3.154*2.72)+9);
+        }
+      })
+    );
+
+    document.querySelectorAll('ul li a i').forEach(link =>
+      link.addEventListener('click', e => {
+        let sectionsAll = document.querySelectorAll('section');
+        sectionsAll.forEach(sec => sec.classList.remove('active'));
+        let targetId = e.target.parentElement.className;
+        let sections = document.querySelector(`#${targetId}`);
+        sections.classList.add('active');
+      })
+    );
+  </script>
+</body>
+
+</html>
